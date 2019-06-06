@@ -1,0 +1,15 @@
+service: express-rest-api
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: us-east-1
+  profile: serverless-ss #Use specific aws profile not default
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
