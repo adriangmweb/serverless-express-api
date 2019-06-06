@@ -2,9 +2,13 @@ service: express-rest-api
 
 custom:
   tableName: 'users-table-${self:provider.stage}'
+  dynamodb:
+    start:
+      migrate:true
 
 plugins:
-  - serverless-offline
+  - serverless-dynamodb-local
+  - serverless-offline #serverless-offline needs to be last in the list
 
 provider:
   name: aws
