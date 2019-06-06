@@ -3,6 +3,9 @@ service: express-rest-api
 custom:
   tableName: 'users-table-${self:provider.stage}'
 
+plugins:
+  - serverless-offline
+
 provider:
   name: aws
   runtime: nodejs10.x
