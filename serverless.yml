@@ -12,12 +12,12 @@ provider:
   iamRoleStatements:
     - Effect: Allow
       Action:
-        - dynamodb: Query
-        - dynamodb: Scan
-        - dynamodb: GetItem
-        - dynamodb: PutItem
-        - dynamodb: UpdateItem
-        - dynamodb: DeleteItem
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
       Resource:
         - { "Fn::GetAtt": ["UsersDynamoDBTable", "Arn"] }
   environment:
@@ -42,8 +42,8 @@ resources:
         KeySchema:
           -
             AttributeName: userId
-            AttributeType: HASH
+            KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: ${self:custom:tableName}
+        TableName: ${self:custom.tableName}
